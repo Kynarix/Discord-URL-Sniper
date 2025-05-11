@@ -1,5 +1,5 @@
 # Discord Vanity URL Sniper & MFA Token Manager
-
+![Discord Vanity URL Sniper & MFA Token Manager](https://i.imgur.com/12KJGWj.png)
 ## Özellikler
 - Discord sunucularında vanity URL (özel davet linki) sniper
 - Otomatik MFA (2FA) token alma ve yenileme
