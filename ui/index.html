@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Discord URL Sniper - Kynarix</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="header">
+        <div class="logo-container">
+          <div class="css-logo">
+            <i class="fas fa-bolt"></i>
+          </div>
+        </div>
+        <h1>URL Sniper</h1>
+      </div>
+      <div class="menu">
+        <button class="active" id="logs-btn">
+          <i class="fas fa-terminal"></i> Konsol
+        </button>
+        <button id="config-btn">
+          <i class="fas fa-cog"></i> Ayarlar
+        </button>
+        <button id="info-btn">
+          <i class="fas fa-info-circle"></i> Bilgi
+        </button>
+      </div>
+      <div class="footer">
+        <p>
+          <a href="https://discord.gg/codejs" target="_blank" class="footer-discord-button">
+            <i class="fab fa-discord"></i>
+            <span class="footer-discord-url">discord.gg/codejs</span>
+          </a>
+        </p>
+        <p><i class="fas fa-code"></i> Kynarix</p>
+      </div>
+    </div>
+    
+    <div class="content">
+      <div class="topbar">
+        <div class="title">
+          <div class="css-logo-small">
+            <i class="fas fa-bolt"></i>
+          </div>
+          Discord URL Sniper
+        </div>
+        <div class="controls">
+          <button id="clear-logs">
+            <i class="fas fa-eraser"></i> Temizle
+          </button>
+          <button id="restart">
+            <i class="fas fa-sync"></i> Yeniden Başlat
+          </button>
+        </div>
+      </div>
+      
+      <div class="panel active" id="logs-panel">
+        <div class="logs-container">
+          <div id="logs"></div>
+        </div>
+        <div class="status">
+          <span id="status">Hazır</span>
+          <span id="connection">Bağlantı: <span class="connected">Aktif</span></span>
+        </div>
+      </div>
+      
+      <div class="panel" id="config-panel">
+        <div class="config-container">
+          <div class="config-header">
+            <div class="config-icon">
+              <i class="fas fa-sliders-h"></i>
+            </div>
+            <div class="config-title">
+              <h3>Uygulama Ayarları</h3>
+              <p>Bu panelden yapılandırma dosyasını (index.js) düzenleyebilirsiniz.</p>
+            </div>
+          </div>
+          
+          <div class="config-form">
+            <div class="config-group">
+              <label for="token">
+                <i class="fas fa-key"></i> Discord Token
+              </label>
+              <div class="input-wrapper">
+                <input type="password" id="token" placeholder="Discord Token">
+                <span class="input-icon" id="toggle-token">
+                  <i class="fas fa-eye"></i>
+                </span>
+              </div>
+              <small>Hesabınıza ait Discord tokenini girin</small>
+            </div>
+            
+            <div class="config-group">
+              <label for="serverid">
+                <i class="fas fa-server"></i> Sunucu ID
+              </label>
+              <div class="input-wrapper">
+                <input type="text" id="serverid" placeholder="Sunucu ID">
+              </div>
+              <small>Hedef sunucunun ID'sini girin</small>
+            </div>
+            
+            <div class="config-group">
+              <label for="password">
+                <i class="fas fa-lock"></i> Hesap Şifresi (MFA için)
+              </label>
+              <div class="input-wrapper">
+                <input type="password" id="password" placeholder="Şifre">
+                <span class="input-icon" id="toggle-password">
+                  <i class="fas fa-eye"></i>
+                </span>
+              </div>
+              <small>MFA token almak için hesap şifreniz gereklidir</small>
+            </div>
+            
+            <div class="config-group">
+              <label for="webhook">
+                <i class="fas fa-bell"></i> Webhook URL
+              </label>
+              <div class="input-wrapper">
+                <input type="text" id="webhook" placeholder="Webhook URL">
+              </div>
+              <small>Discord webhook URL'sini girin (bildirimler için)</small>
+            </div>
+          </div>
+          
+          <div class="config-footer">
+            <div class="config-note">
+              <i class="fas fa-info-circle"></i>
+              <span>Değişiklikler kaydedildikten sonra uygulama otomatik olarak yeniden başlatılacaktır.</span>
+            </div>
+            <div class="config-buttons">
+              <button id="reset-config" class="secondary-btn">
+                <i class="fas fa-undo"></i> Sıfırla
+              </button>
+              <button id="save-config" class="primary-btn">
+                <i class="fas fa-save"></i> Kaydet
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="panel" id="info-panel">
+        <div class="info-card">
+          <h3>Discord URL Sniper</h3>
+          <p>Bu uygulama, Discord sunucularında vanity URL (özel davet linki) takip etmek ve boşa çıktığında hızlıca almak için tasarlanmıştır.</p>
+          
+          <div class="premium-badge">
+            <i class="fas fa-gift"></i> %100 ÜCRETSİZ
+          </div>
+          
+          <h4>Özellikler:</h4>
+          <ul>
+            <li><i class="fas fa-bolt"></i> Discord vanity URL snipe etme</li>
+            <li><i class="fas fa-key"></i> Otomatik MFA token alma ve yenileme</li>
+            <li><i class="fas fa-bell"></i> Webhook ile bildirim gönderme</li>
+            <li><i class="fas fa-palette"></i> Modern ve animasyonlu arayüz</li>
+            <li><i class="fas fa-server"></i> Sunucu listesi görüntüleme</li>
+          </ul>
+          
+          <h4>Kullanım:</h4>
+          <p>1. Ayarlar sekmesinden Discord tokeninizi, sunucu ID'nizi ve varsa webhook URL'nizi girin.</p>
+          <p>2. "Kaydet" butonuna tıklayın ve programı yeniden başlatın.</p>
+          <p>3. Konsol sekmesinden işlemleri takip edin.</p>
+          
+          <div class="info-highlight">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div>
+              <h4>Önemli Not:</h4>
+              <p>Bu uygulama <strong>tamamen ücretsizdir</strong>. Eğer bu uygulama için birilerine para ödediyseniz <strong>dolandırıldınız</strong> demektir!!</p>
+            </div>
+          </div>
+          
+          <div class="author-section">
+            <div class="author-info">
+              <h4>Yapımcı:</h4>
+              <p><strong>Kynarix</strong></p>
+            </div>
+            
+            <div class="discord-invite">
+              <p>Discord Sunucumuz:</p>
+              <a href="https://discord.gg/codejs" target="_blank" class="discord-button">
+                <i class="fab fa-discord"></i>
+                <span class="discord-url">discord.gg/codejs</span>
+                <span class="join-now">Katıl</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="renderer.js"></script>
+</body>
+</html> 

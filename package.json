@@ -1,0 +1,31 @@
+{
+  "name": "discord-url-sniper",
+  "version": "1.0.0",
+  "description": "Discord vanity URL sniper ve MFA token",
+  "main": "main.js",
+  "author": {
+    "name": "Kynarix",
+    "url": "https://discord.gg/codejs"
+  },
+  "homepage": "https://discord.gg/codejs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kynarix/Discord-URL-Sniper"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "electron .",
+    "build": "electron-builder"
+  },
+  "dependencies": {
+    "extract-json-string": "^1.0.1",
+    "tls": "^0.0.1",
+    "ws": "^8.18.1",
+    "open": "^9.0.0",
+    "chalk": "^5.3.0"
+  },
+  "devDependencies": {
+    "electron": "^29.0.0",
+    "electron-builder": "^24.13.0"
+  }
+}
