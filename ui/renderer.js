@@ -98,8 +98,7 @@ function loadConfigValues() {
   try {
     const filePath = path.join(__dirname, '../index.js');
     const content = fs.readFileSync(filePath, 'utf8');
-    
-    // Extract config values
+  
     const tokenMatch = content.match(/token:\s*"([^"]*)"/);
     const serveridMatch = content.match(/serverid:\s*"([^"]*)"/);
     const passwordMatch = content.match(/password:\s*"([^"]*)"/);
@@ -114,13 +113,11 @@ function loadConfigValues() {
   }
 }
 
-// Set status
 function setStatus(message, type = 'info') {
   statusEl.textContent = message;
   statusEl.className = '';
   statusEl.classList.add(type);
   
-  // 3 saniye sonra "Hazır" durumuna dönme
   if (type !== 'error') {
     setTimeout(() => {
       statusEl.textContent = 'Hazır';
@@ -129,20 +126,16 @@ function setStatus(message, type = 'info') {
   }
 }
 
-// Set connection status
 function setConnectionStatus(connected) {
   connectionEl.textContent = connected ? 'Aktif' : 'Kapalı';
   connectionEl.className = connected ? 'connected' : 'disconnected';
 }
 
-// Load config values on startup
 loadConfigValues();
 
-// Input görünürlüğü işlevlerini kur
 function setupInputVisibility() {
   console.log('Görünürlük düğmeleri ayarlanıyor...');
   
-  // Parola görünürlüğü
   const togglePassword = document.getElementById('toggle-password');
   const passwordInput = document.getElementById('password');
   
@@ -156,7 +149,6 @@ function setupInputVisibility() {
     };
   }
 
-  // Token görünürlüğü
   const toggleToken = document.getElementById('toggle-token');
   const tokenInput = document.getElementById('token');
   
@@ -170,7 +162,6 @@ function setupInputVisibility() {
     };
   }
   
-  // Reset butonu
   const resetConfigBtn = document.getElementById('reset-config');
   if (resetConfigBtn) {
     resetConfigBtn.onclick = () => {
@@ -183,27 +174,19 @@ function setupInputVisibility() {
   }
 }
 
-// DOMContentLoaded yerine direkt çağır
 setupInputVisibility();
 
-// Config paneline geçildiğinde görünürlük düğmelerini tekrar kur
 navButtons.config.addEventListener('click', () => {
-  // Küçük bir gecikme ile çağır (DOM'un tamamen yüklenmesini bekle)
   setTimeout(setupInputVisibility, 100);
 });
 
-// Sunucu listesi için değişkenler
 let currentServerList = [];
 let isShowingServerList = false;
-
-// Append log message
 function appendLog(message, type = 'log', timestamp = null) {
-  // 'hidden' tipindeki logları gösterme
   if (type === 'hidden') {
     return null;
   }
   
-  // Normal log girdisi
   const logEntry = document.createElement('div');
   logEntry.className = `log-entry ${type}`;
   
